@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
@@ -8,6 +7,10 @@ import SdkContextProvider from "./contexts/pipedriveSdk";
 const route = createBrowserRouter([
   {
     path: "/addDeal",
+    element: <AddDeal />,
+  },
+  {
+    path: "/",
     element: <AddDeal />,
   },
 ]);

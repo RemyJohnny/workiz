@@ -54,7 +54,7 @@ export default function AddDeal() {
 
   const handleSummit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const id = createDeal(inputField, deal);
+    /* const id =  */ createDeal(inputField, deal);
     //await sdk.execute(Command.REDIRECT_TO, { view: View.DEALS, id: id });
   };
   return (
