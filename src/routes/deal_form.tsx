@@ -2,14 +2,13 @@ import { useEffect, useState } from "react";
 import useFetchApi, { deal } from "../hooks/useFetchApi";
 import CreateDeal from "../hooks/useCreateDeal";
 import { inputField } from "../hooks/useCreateDeal";
-/* import useSDK from "../hooks/useSdk";
+import useSDK from "../hooks/useSdk";
 import { Command, View } from "@pipedrive/app-extensions-sdk";
-import SdkContextProvider from "../contexts/pipedriveSdk";
- */
+
 export default function AddDeal() {
   const { getRequest } = useFetchApi();
   const { getKeys, addAllField, createDeal } = CreateDeal();
-  //const sdk = useSDK();
+  const sdk = useSDK();
 
   const [deal, setDeal] = useState<deal>({
     first_name: "",
@@ -54,8 +53,8 @@ export default function AddDeal() {
 
   const handleSummit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    /* const id =  */ createDeal(inputField, deal);
-    //await sdk.execute(Command.REDIRECT_TO, { view: View.DEALS, id: id });
+    const id = createDeal(inputField, deal);
+    await sdk.execute(Command.REDIRECT_TO, { view: View.DEALS, id: id });
   };
   return (
     <>
